@@ -1,0 +1,8 @@
+FROM node:alpine
+WORKDIR /www
+COPY ./package.json /www
+RUN npm install
+COPY app.js /www
+# --legacy-watch is for window to work only
+CMD node --legacy-watch app.js
+EXPOSE 3000

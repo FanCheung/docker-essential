@@ -1,0 +1,9 @@
+FROM node:alpine
+WORKDIR /www
+COPY ./package.json /www
+RUN npm install
+# --legacy-watch is for window to work only
+CMD node_modules/.bin/nodemon --legacy-watch app.js
+EXPOSE 3000
+#docker build -t express-app .
+#docker run -it -v  C:\Users\FCheung\Documents\docker\www:/www -v .:/www/node_modules -p 3000:3000 express-app-dev
